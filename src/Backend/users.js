@@ -1,5 +1,5 @@
 import { auth, db } from "./firebase.js";
-import { addDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
@@ -26,7 +26,7 @@ export default class User{
         .then((userCredential) => { 
         const user = userCredential.user;
         console.log(user.uid);
-        completeUserDataAddition(user.uid);
+        this.completeUserDataAddition(user.uid);
         })
         .catch((error) => {
         const errorCode = error.code;
@@ -36,6 +36,7 @@ export default class User{
     }
 
     async completeUserDataAddition(id) {
+        console.log("hello2")
         var data = {
           firstname: this.firstname,
           lastname: this.lastname,
@@ -50,7 +51,7 @@ export default class User{
         console.log(data);
       
         try {
-          await db.collection("users").doc(id).set(data);
+          const res = await setDoc(doc(db, 'users', id), data)
           console.log("Document successfully written!");
         } catch (error) {
           console.error("Error writing document: ", error);

@@ -12,7 +12,7 @@ const auth = getAuth();
 const user = new User(
   'John',
   'Doe',
-  'john6@example.com',
+  'john1130@example.com',
   'password',
   'University',
   'Faculty',
