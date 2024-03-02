@@ -1,5 +1,6 @@
-import { auth, db } from "./firebase.js";
+import { auth, db } from "../firebase.js";
 import { doc, setDoc } from "firebase/firestore";
+import { Router } from 'express';
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,

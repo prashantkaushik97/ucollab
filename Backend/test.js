@@ -3,7 +3,7 @@ import { getAuth } from 'firebase/auth';
 import { collection, addDoc } from 'firebase/firestore';
 
 // Import the User class from your code
-import User from './users.js';
+import User from './controllers/users.js';
 
 // Initialize Firebase Auth
 const auth = getAuth();
